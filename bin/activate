@@ -1,3 +1,5 @@
 #!/bin/sh
 
-xkbcomp -I/home/gbehm/dvorak/xkb maps/thinkpad ${DISPLAY}
+cd ~/dvorak/xkb
+
+xkbcomp -I${HOME}/dvorak/xkb maps/gbehm ${DISPLAY}
