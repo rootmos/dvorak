@@ -2,4 +2,4 @@
 
 cd ~/dvorak/xkb
 
-xkbcomp -I${HOME}/dvorak/xkb maps/gbehm ${DISPLAY}
+xkbcomp -w 0 -I${HOME}/dvorak/xkb maps/gbehm ${DISPLAY}
