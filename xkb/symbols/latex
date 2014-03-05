@@ -15,7 +15,8 @@ xkb_symbols "latex" {
     key <AE08> { [ backslash,       slash,              8                      ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
     key <AE09> { [ parenright,      bar,	             9                             ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
     key <AE10> { [ 0, question ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
-    key <AE11> { [ plus ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
+    key <AE11> { [ plus ] };
+    key <AE12> { [ grave ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
 
 
 };
