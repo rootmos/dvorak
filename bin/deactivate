@@ -1,5 +1,4 @@
 #!/bin/sh
 
-setxkbmap se
-setxkbmap -option ctrl:nocaps
+setxkbmap -option -layout se -option ctrl:nocaps
 xmodmap -e "keycode 35 = asciicircum asciitilde"

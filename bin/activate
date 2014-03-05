@@ -1,5 +1,7 @@
 #!/bin/sh
 
-cd ~/dvorak/xkb
+setxkbmap -layout us -variant dvorak -option dvse:latex,ctrl:nocaps
 
-xkbcomp -w 0 -I${HOME}/dvorak/xkb maps/gbehm ${DISPLAY}
+
+#cd ~/dvorak/xkb
+#xkbcomp -w 0 -I${HOME}/dvorak/xkb maps/gbehm ${DISPLAY}
