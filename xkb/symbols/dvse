@@ -6,7 +6,7 @@ xkb_symbols "dvse" {
 
     key <TLDE> { [ apostrophe, asterisk] };
 
-    key <AD01> { [ underscore, minus]};
+    key <AD01> { [ minus, underscore]};
     key <AD02> { [ comma, semicolon]};
     key <AD03> { [ period, colon]};
 

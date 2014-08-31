@@ -4,7 +4,7 @@ ROOT=~/dvorak
 XKB=/usr/share/X11/xkb
 
 cp $ROOT/xkb/symbols/dvse $XKB/symbols/
-cp $ROOT/xkb/symbols/latex $XKB/symbols/
+cp $ROOT/xkb/symbols/code $XKB/symbols/
 #cp $ROOT/xkb/maps/gbehm $XKB/keymap
 
-echo "And add 'dvse:latex = +latex+dvse' to $XKB/rules/evdev"
+echo "And add 'dvse:code = +code+dvse' to $XKB/rules/evdev"
