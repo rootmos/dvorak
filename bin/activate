@@ -1,6 +1,6 @@
 #!/bin/sh
 
-setxkbmap -layout us -variant dvorak -option dvse:latex,ctrl:nocaps
+setxkbmap -layout us -variant dvorak -option dvse:code,ctrl:nocaps
 
 
 #cd ~/dvorak/xkb
