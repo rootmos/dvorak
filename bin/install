@@ -1,6 +1,6 @@
 #!/bin/sh
 
-ROOT=~/dvorak
+ROOT=$(readlink -f $0 | xargs dirname)/..
 XKB=/usr/share/X11/xkb
 
 cp $ROOT/xkb/symbols/dvse $XKB/symbols/
