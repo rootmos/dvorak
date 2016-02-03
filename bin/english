@@ -1,0 +1,5 @@
+#!/bin/sh
+
+setxkbmap -option -layout us -option ctrl:nocaps
+xmodmap -e "keycode 35 = asciicircum asciitilde"
+notify-send "Switching to US English layout"

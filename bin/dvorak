@@ -1,7 +1,4 @@
 #!/bin/sh
 
 setxkbmap -layout us -variant dvorak -option dvse:code,ctrl:nocaps
-
-
-#cd ~/dvorak/xkb
-#xkbcomp -w 0 -I${HOME}/dvorak/xkb maps/gbehm ${DISPLAY}
+notify-send "Switching to Dvorak layout"
