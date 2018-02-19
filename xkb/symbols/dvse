@@ -12,7 +12,6 @@ xkb_symbols "dvse" {
     key <AD12> { [asciitilde, asciicircum] };
     key <AB01> { [asciicircum, asciitilde]};
 
-
     key <AC11> { [adiaeresis, Adiaeresis]};
     key <AC12> { [odiaeresis, Odiaeresis]};
 };
