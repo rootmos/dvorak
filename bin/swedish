@@ -1,5 +1,10 @@
 #!/bin/sh
 
+set -o errexit
+
 setxkbmap -option -layout se -option ctrl:nocaps
 xmodmap -e "keycode 35 = asciicircum asciitilde"
-notify-send "Switching to Swedish layout"
+
+if type notify-send &> /dev/null; then
+  notify-send "Switching to Swedish layout"
+fi

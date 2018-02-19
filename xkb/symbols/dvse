@@ -1,7 +1,5 @@
 partial alphanumeric_keys
 xkb_symbols "dvse" {
-
-    name[Group1] = "Swedish keys in Dvorak";
     include "level3(ralt_switch)"
 
     key <TLDE> { [ apostrophe, asterisk] };
@@ -17,11 +15,4 @@ xkb_symbols "dvse" {
 
     key <AC11> { [adiaeresis, Adiaeresis]};
     key <AC12> { [odiaeresis, Odiaeresis]};
-
-
-
-//    key <AC01> { [ a,		    A,		    aring,				Aring]};
-//    key <AC02> { [ o,		    O,		    odiaeresis,				Odiaeresis]};
-//x    key <AC03> { [ e,		    E,		    adiaeresis,				Adiaeresis]};
-
 };

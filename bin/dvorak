@@ -1,4 +1,11 @@
 #!/bin/sh
 
-setxkbmap -layout us -variant dvorak -option dvse:code,ctrl:nocaps
-notify-send "Switching to Dvorak layout"
+set -o errexit
+
+ROOT=$(readlink -f $0 | xargs dirname)/..
+setxkbmap -symbols "pc+us(dvorak)+inet(evdev)+code+dvse+ctrl(nocaps)" -print \
+    | xkbcomp -I$ROOT/xkb - $DISPLAY
+
+if type notify-send &> /dev/null; then
+  notify-send "Switching to Dvorak layout"
+fi
