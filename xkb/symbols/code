@@ -10,8 +10,8 @@ xkb_symbols "code" {
     // symbols row, right side
     key <AE07> { [ braceright, bracketright, 7 ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
     key <AE08> { [ slash, backslash, 8 ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
-    key <AE09> { [ parenright, VoidSymbol, 9 ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
+    key <AE09> { [ parenright, bar, 9 ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
     key <AE10> { [ 0, question, 0 ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
-    key <AE11> { [ plus, NoSymbol, NoSymbol ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
+    key <AE11> { [ plus, less, greater ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
     key <AE12> { [ grave, dead_acute, dead_grave ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
 };
