@@ -2,16 +2,16 @@ partial alphanumeric_keys
 xkb_symbols "dvse" {
     include "level3(ralt_switch)"
 
-    key <TLDE> { [ apostrophe, asterisk] };
+    key <TLDE> { [ apostrophe, asterisk ] };
 
-    key <AD01> { [ minus, underscore]};
-    key <AD02> { [ comma, semicolon]};
-    key <AD03> { [ period, colon]};
+    key <AD01> { [ minus, underscore ]};
+    key <AD02> { [ comma, semicolon ]};
+    key <AD03> { [ period, colon ]};
 
     key <AD11> { [aring, Aring]};
-    key <AD12> { [asciitilde, asciicircum] };
-    key <AB01> { [asciicircum, asciitilde]};
+    key <AD12> { [asciitilde, asciicircum ] };
+    key <AB01> { [asciicircum, asciitilde ]};
 
-    key <AC11> { [adiaeresis, Adiaeresis]};
-    key <AC12> { [odiaeresis, Odiaeresis]};
+    key <AC11> { [adiaeresis, Adiaeresis] };
+    key <AC12> { [odiaeresis, Odiaeresis ]};
 };
