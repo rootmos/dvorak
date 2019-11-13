@@ -7,10 +7,6 @@ xkb_symbols "dvse" {
     key <AC04> { [ u, U, udiaeresis, Udiaeresis ] };
     key <AC10> { [ s, S, ssharp ] };
 
-    key <AD01> { [ minus, underscore ]};
-    key <AD02> { [ comma, semicolon ]};
-    key <AD03> { [ period, colon ]};
-
     key <AD11> { [aring, Aring]};
     key <AD12> { [asciitilde, asciicircum ] };
     key <AB01> { [asciicircum, asciitilde ]};
