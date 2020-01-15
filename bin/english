@@ -2,7 +2,8 @@
 
 set -o nounset -o pipefail -o errexit
 
-setxkbmap -option -layout us -option ctrl:nocaps
+setxkbmap -option -layout us -option ctrl:nocaps \
+    >> "${LOGDIR-${TMPDIR-/tmp}}/xkbcomp.log" 2>&1
 
 APP="kb"
 SUMMARY="us"

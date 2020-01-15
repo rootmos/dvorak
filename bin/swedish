@@ -2,8 +2,11 @@
 
 set -o nounset -o pipefail -o errexit
 
-setxkbmap -option -layout se -option ctrl:nocaps
-xmodmap -e "keycode 35 = asciicircum asciitilde"
+(
+    setxkbmap -option -layout se -option ctrl:nocaps
+    xmodmap -e "keycode 35 = asciicircum asciitilde"
+) >> "${LOGDIR-${TMPDIR-/tmp}}/xkbcomp.log" 2>&1
+
 
 APP="kb"
 SUMMARY="se"

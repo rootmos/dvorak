@@ -3,8 +3,10 @@
 set -o nounset -o pipefail -o errexit
 
 ROOT=$(readlink -f $0 | xargs dirname)/..
+
 setxkbmap -symbols "pc+us(dvorak)+inet(evdev)+code+dvse+ctrl(nocaps)" -print \
-    | xkbcomp -I"$ROOT/xkb" - "$DISPLAY"
+    | xkbcomp -I"$ROOT/xkb" - "$DISPLAY" \
+    >> "${LOGDIR-${TMPDIR-/tmp}}/xkbcomp.log" 2>&1
 
 APP="kb"
 SUMMARY="dv"
