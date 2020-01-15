@@ -1,10 +1,18 @@
-#!/bin/sh
+#!/bin/bash
 
-set -o errexit
+set -o nounset -o pipefail -o errexit
 
 setxkbmap -option -layout se -option ctrl:nocaps
 xmodmap -e "keycode 35 = asciicircum asciitilde"
 
-if type notify-send &> /dev/null; then
-  notify-send "Switching to Swedish layout"
+APP="kb"
+SUMMARY="se"
+
+if command -v dunstify > /dev/null; then
+    dunstify --replace=773834\
+        --icon=input-keyboard \
+        --timeout=750  \
+        --appname="$APP" "$SUMMARY"
+elif command -v notify-send > /dev/null; then
+    notify-send "$APP: $SUMMARY"
 fi

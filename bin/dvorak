@@ -1,11 +1,19 @@
-#!/bin/sh
+#!/bin/bash
 
-set -o errexit
+set -o nounset -o pipefail -o errexit
 
 ROOT=$(readlink -f $0 | xargs dirname)/..
 setxkbmap -symbols "pc+us(dvorak)+inet(evdev)+code+dvse+ctrl(nocaps)" -print \
-    | xkbcomp -I$ROOT/xkb - $DISPLAY
+    | xkbcomp -I"$ROOT/xkb" - "$DISPLAY"
 
-if type notify-send &> /dev/null; then
-  notify-send "Switching to Dvorak layout"
+APP="kb"
+SUMMARY="dv"
+
+if command -v dunstify > /dev/null; then
+    dunstify --replace=773834\
+        --icon=input-keyboard \
+        --timeout=750  \
+        --appname="$APP" "$SUMMARY"
+elif command -v notify-send > /dev/null; then
+    notify-send "$APP: $SUMMARY"
 fi

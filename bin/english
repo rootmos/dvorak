@@ -1,9 +1,17 @@
-#!/bin/sh
+#!/bin/bash
 
-set -o errexit
+set -o nounset -o pipefail -o errexit
 
 setxkbmap -option -layout us -option ctrl:nocaps
 
-if type notify-send &> /dev/null; then
-  notify-send "Switching to US English layout"
+APP="kb"
+SUMMARY="us"
+
+if command -v dunstify > /dev/null; then
+    dunstify --replace=773834\
+        --icon=input-keyboard \
+        --timeout=750  \
+        --appname="$APP" "$SUMMARY"
+elif command -v notify-send > /dev/null; then
+    notify-send "$APP: $SUMMARY"
 fi
