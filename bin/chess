@@ -1,0 +1,3 @@
+#!/bin/sh
+
+exec $(readlink -f "$0" | xargs dirname)/keymap "chess"

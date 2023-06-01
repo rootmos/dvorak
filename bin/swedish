@@ -1,21 +1,3 @@
-#!/bin/bash
+#!/bin/sh
 
-set -o nounset -o pipefail -o errexit
-
-(
-    setxkbmap -option -layout se -option ctrl:nocaps
-    xmodmap -e "keycode 35 = asciicircum asciitilde"
-) >> "${LOGDIR-${TMPDIR-/tmp}}/xkbcomp.log" 2>&1
-
-
-APP="kb"
-SUMMARY="se"
-
-if command -v dunstify > /dev/null; then
-    dunstify --replace=773834\
-        --icon=input-keyboard \
-        --timeout=750  \
-        --appname="$APP" "$SUMMARY"
-elif command -v notify-send > /dev/null; then
-    notify-send "$APP: $SUMMARY"
-fi
+exec $(readlink -f "$0" | xargs dirname)/keymap "swedish"
