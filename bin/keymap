@@ -10,7 +10,7 @@ symbols() {
 }
 
 dvorak() {
-    symbols "pc+us(dvorak)+inet(evdev)+code+dvse+ctrl(nocaps)"
+    symbols "pc+us(dvorak)+inet(evdev)+punctuation+code+dvse+ctrl(nocaps)"
 }
 
 text() {
@@ -18,7 +18,7 @@ text() {
 }
 
 chess() {
-    symbols "pc+us(dvorak)+inet(evdev)+dvse+ctrl(nocaps)"
+    symbols "pc+us(dvorak)+inet(evdev)+dvse+punctuation+ctrl(nocaps)"
 }
 
 english() {

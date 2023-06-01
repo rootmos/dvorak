@@ -1,0 +1,6 @@
+partial alphanumeric_keys
+xkb_symbols "punctuation" {
+    key <AD01> { [ minus, underscore ]};
+    key <AD02> { [ comma, semicolon ]};
+    key <AD03> { [ period, colon ]};
+};
