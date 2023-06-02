@@ -5,44 +5,22 @@ set -o nounset -o pipefail -o errexit
 SCRIPT_DIR=$(readlink -f "$0" | xargs dirname)
 ROOT=$(readlink -f "$SCRIPT_DIR")/..
 
-symbols() {
-    setxkbmap -symbols "$1" -print | xkbcomp -I"$ROOT/xkb" - "$DISPLAY"
-}
-
-dvorak() {
-    symbols "pc+us(dvorak)+inet(evdev)+punctuation+code+dvse+ctrl(nocaps)"
-}
-
-text() {
-    symbols "pc+us(dvorak)+inet(evdev)+text+dvse+ctrl(nocaps)"
-}
-
-chess() {
-    symbols "pc+us(dvorak)+inet(evdev)+dvse+punctuation+ctrl(nocaps)"
-}
-
-english() {
-    setxkbmap -option -layout us -option ctrl:nocaps
-}
-
-swedish() {
-    setxkbmap -option -layout se -option ctrl:nocaps
-    xmodmap -e "keycode 35 = asciicircum asciitilde"
-}
-
-KEYMAPs="dvorak text chess swedish english"
-
-KEYMAP=${1-dvorak}
-case $KEYMAPs in
-    *"$KEYMAP"*) true ;;
-    *) echo 1>&2 "unknown keymap: $KEYMAP"; exit 1 ;;
-esac
-
 APP="keymap"
 LOG="${KEYMAP_LOGDIR-${TMP-/tmp}}/$APP.log"
 
-echo "applying keymap: $KEYMAP" | tee -a "$LOG" 1>&2
-$KEYMAP 2>>"$LOG"
+apply() {
+    setxkbmap -layout "rootmos($1)" -print \
+        | xkbcomp -I"$ROOT/xkb" - "$DISPLAY" 2>>"$LOG"
+}
+
+KEYMAP=${1-code}
+echo "applying keymap: $KEYMAP" >> "$LOG"
+if apply "$KEYMAP"; then
+    echo "applied keymap: $KEYMAP" | tee -a "$LOG" 1>&2
+else
+    echo "unable to apply keymap: $KEYMAP" | tee -a "$LOG" 1>&2
+    exit 1
+fi
 
 if command -v dunstify > /dev/null; then
     dunstify --replace=773834\
