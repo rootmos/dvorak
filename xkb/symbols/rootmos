@@ -41,7 +41,6 @@ xkb_symbols "basic" {
     key <AB09> { [ v, V ] };
     key <AB10> { [ z, Z ] };
 
-    key <BKSL> { [ backslash, bar ] };
     key <SPCE> { [ space, space ] };
 };
 
