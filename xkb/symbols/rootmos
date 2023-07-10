@@ -17,8 +17,8 @@ xkb_symbols "basic" {
     key <AD12> { [ asciitilde, asciicircum ] };
 
     key <AC01> { [ a, A ] };
-    key <AC02> { [ o, O ] };
-    key <AC03> { [ e, E ] };
+    key <AC02> { [ o, O, oe, OE ] };
+    key <AC03> { [ e, E, EuroSign ] };
     key <AC04> { [ u, U, udiaeresis, Udiaeresis ] };
     key <AC05> { [ i, I ] };
     key <AC06> { [ d, D ] };
@@ -26,8 +26,8 @@ xkb_symbols "basic" {
     key <AC08> { [ t, T ] };
     key <AC09> { [ n, N ] };
     key <AC10> { [ s, S, ssharp ] };
-    key <AC11> { [adiaeresis, Adiaeresis ] };
-    key <AC12> { [odiaeresis, Odiaeresis ] };
+    key <AC11> { [adiaeresis, Adiaeresis, ae, AE ] };
+    key <AC12> { [odiaeresis, Odiaeresis, oslash, Oslash ] };
 
     key <LSGT> { [ less, greater, bar ] };
     key <AB01> { [ asciicircum, asciitilde ] };
