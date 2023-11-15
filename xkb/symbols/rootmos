@@ -122,3 +122,13 @@ xkb_symbols "se" {
 
     key <AD12> { [ asciitilde, asciicircum ] };
 };
+
+partial alphanumeric_keys modifier_keys
+xkb_symbols "adom" {
+    include "us"
+    include "ctrl(nocaps)"
+    include "level3(ralt_switch)"
+
+    key <AE11> { [ minus, underscore ] };
+    key <AE12> { [ plus, asterisk ] };
+};
