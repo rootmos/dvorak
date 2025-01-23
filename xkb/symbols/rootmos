@@ -14,7 +14,7 @@ xkb_symbols "basic" {
     key <AD09> { [ r, R ] };
     key <AD10> { [ l, L ] };
     key <AD11> { [ aring, Aring ] };
-    key <AD12> { [ asciitilde, asciicircum ] };
+    key <AD12> { [ asciitilde, dead_tilde ] };
 
     key <AC01> { [ a, A ] };
     key <AC02> { [ o, O, oe, OE ] };
@@ -30,7 +30,7 @@ xkb_symbols "basic" {
     key <AC12> { [odiaeresis, Odiaeresis, oslash, Oslash ] };
 
     key <LSGT> { [ less, greater, bar ] };
-    key <AB01> { [ asciicircum, asciitilde ] };
+    key <AB01> { [ asciicircum, dead_circumflex ] };
     key <AB02> { [ q, Q ] };
     key <AB03> { [ j, J ] };
     key <AB04> { [ k, K ] };
