@@ -25,7 +25,7 @@ xkb_symbols "basic" {
     key <AC07> { [ h, H ] };
     key <AC08> { [ t, T ] };
     key <AC09> { [ n, N ] };
-    key <AC10> { [ s, S, ssharp ] };
+    key <AC10> { [ s, S, musicalsharp, ssharp ] };
     key <AC11> { [adiaeresis, Adiaeresis, ae, AE ] };
     key <AC12> { [odiaeresis, Odiaeresis, oslash, Oslash ] };
 
@@ -35,7 +35,7 @@ xkb_symbols "basic" {
     key <AB03> { [ j, J ] };
     key <AB04> { [ k, K ] };
     key <AB05> { [ x, X ] };
-    key <AB06> { [ b, B ] };
+    key <AB06> { [ b, B, musicalflat ] };
     key <AB07> { [ m, M ] };
     key <AB08> { [ w, W ] };
     key <AB09> { [ v, V ] };
@@ -109,7 +109,7 @@ xkb_symbols "us" {
     include "level3(ralt_switch)"
 
     key <AD07> { [ u, U, udiaeresis, Udiaeresis ] };
-    key <AC02> { [ s, S, ssharp ] };
+    key <AC02> { [ s, S, musicalsharp, ssharp ] };
 };
 
 partial alphanumeric_keys modifier_keys
@@ -118,7 +118,7 @@ xkb_symbols "se" {
     include "ctrl(nocaps)"
 
     key <AD07> { [ u, U, udiaeresis, Udiaeresis ] };
-    key <AC02> { [ s, S, ssharp ] };
+    key <AC02> { [ s, S, musicalsharp, ssharp ] };
 
     key <AD12> { [ asciitilde, asciicircum ] };
 };
