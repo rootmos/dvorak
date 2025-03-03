@@ -22,14 +22,11 @@ else
     exit 1
 fi
 
-if command -v dunstify > /dev/null; then
-    dunstify --replace=773834\
-        --icon=input-keyboard \
-        --timeout=750  \
-        --appname="$APP" "$KEYMAP"
-elif command -v notify-send > /dev/null; then
-    notify-send "$APP: $KEYMAP"
-fi
+"$SCRIPT_DIR/notify" \
+    --icon=input-keyboard \
+    --timeout=750  \
+    --appname="$APP" "$KEYMAP" \
+    || true
 
 RESTART_SERVICEs=("controller")
 for s in "${RESTART_SERVICEs[@]}"; do

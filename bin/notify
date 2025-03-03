@@ -1,0 +1,104 @@
+#!/usr/bin/env python3
+# notify
+# https://git.sr.ht/~rootmos/scripts f516bfafcb35323027788f5fbf4bef9cb50fb2b5
+# 2026-02-24T20:12:39+01:00 SHA-256:5709a8fef41224781cde24bb378e03357e137b37cb9fa3b110e02f2b312e6cf7
+# sed "2,5d" | sha256sum | cut -f1 -d" "
+
+import argparse
+import os
+import shutil
+import subprocess
+import sys
+import zlib
+
+whoami = "notify"
+env_prefix = whoami.upper().replace("-", "_").replace(".", "_") + "_"
+def env(var, default=None):
+    return os.environ.get(env_prefix + var, default)
+
+import logging
+logger = logging.getLogger(whoami)
+
+def get_parent_process_name():
+    with open(f"/proc/{os.getppid()}/comm", encoding="utf-8") as f:
+        for l in f:
+            return l.strip()
+
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description=f"{whoami}",
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+    )
+
+    parser.add_argument("--log", default=env("LOG_LEVEL", "INFO"), help="set log level")
+
+    parser.add_argument("--appname", default=env("APP_NAME", get_parent_process_name()), help="set application name")
+    parser.add_argument("--print-id", action="store_true")
+
+    parser.add_argument("--icon")
+
+    parser.add_argument("--action", metavar="NAME=COMMAND", action="append")
+
+    parser.add_argument("--timeout", type=int)
+
+    parser.add_argument("summary", metavar="SUMMARY")
+    parser.add_argument("body", metavar="BODY", nargs="?")
+
+    return parser.parse_args()
+
+def setup_logger(level):
+    level = level.upper()
+    logger.setLevel(level)
+
+    handler = logging.StreamHandler()
+    handler.setLevel(level)
+    logger.addHandler(handler)
+
+    fmt = logging.Formatter(fmt="%(asctime)s:%(name)s:%(levelname)s %(message)s", datefmt="%Y-%m-%dT%H:%M:%S%z")
+    handler.setFormatter(fmt)
+
+def main():
+    args = parse_args()
+    setup_logger(args.log)
+    logger.debug("args: %s", args)
+
+    ID = zlib.crc32(args.appname.encode("UTF-8")) % 0xffff
+    if args.print_id:
+        print(ID)
+        return True
+
+    logger.debug("ID: %s", ID)
+
+    exe = shutil.which("notify-send")
+    if exe is None:
+        logger.error("unable to locate: notify-send")
+        return False
+
+    cmdline = [ exe ]
+    cmdline += [ f"--app-name={args.appname}" ]
+    cmdline += [ f"--replace-id={ID}" ]
+
+    if args.icon is not None:
+        cmdline += [ f"--icon={args.icon}" ]
+
+    for a in args.action or []:
+        cmdline += [ f"--action={a}" ]
+
+    if args.timeout is not None:
+        if args.timeout == 0:
+            # TODO hackish, but works
+            cmdline += [ "--urgency=critical" ]
+            cmdline += [ "--expire-time=-1" ]
+        else:
+            cmdline += [ f"--expire-time={args.timeout}" ]
+
+    cmdline += [ args.summary ]
+    if args.body is not None:
+        cmdline += [ args.body ]
+
+    logger.debug("running: %s", cmdline)
+    subprocess.check_call(cmdline)
+    return True
+
+if __name__ == "__main__":
+    sys.exit(0 if main() else 1)
