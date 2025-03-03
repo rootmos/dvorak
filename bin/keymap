@@ -22,7 +22,9 @@ else
     exit 1
 fi
 
-if command -v dunstify > /dev/null; then
+if command -v notify > /dev/null; then
+    notify --timeout=750 --icon=input-keyboard "$KEYMAP"
+elif command -v dunstify > /dev/null; then
     dunstify --replace=773834\
         --icon=input-keyboard \
         --timeout=750  \
