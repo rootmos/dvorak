@@ -49,7 +49,7 @@ xkb_symbols "code" {
     include "rootmos(basic)"
 
     key <TLDE> { [ apostrophe, asterisk ] };
-    key <AE01> { [ 1, exclam, 1] };
+    key <AE01> { [ 1, exclam, U203D ] };
     key <AE02> { [ 2, quotedbl, at] };
     key <AE03> { [ parenleft, numbersign, 3 ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
     key <AE04> { [ dollar, percent, 4 ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
@@ -58,7 +58,7 @@ xkb_symbols "code" {
     key <AE07> { [ braceright, bracketright, 7 ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
     key <AE08> { [ slash, backslash, 8 ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
     key <AE09> { [ parenright, bar, 9 ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
-    key <AE10> { [ 0, question, U203D ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
+    key <AE10> { [ 0, question, U00B0 ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
     key <AE11> { [ plus, U2713 ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
     key <AE12> { [ grave, dead_acute, dead_grave ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
 };
