@@ -24,7 +24,7 @@ xkb_symbols "basic" {
     key <AC06> { [ d, D ] };
     key <AC07> { [ h, H ] };
     key <AC08> { [ t, T ] };
-    key <AC09> { [ n, N ] };
+    key <AC09> { [ n, N, U00AC ] };
     key <AC10> { [ s, S, musicalsharp, ssharp ] };
     key <AC11> { [adiaeresis, Adiaeresis, ae, AE ] };
     key <AC12> { [odiaeresis, Odiaeresis, oslash, Oslash ] };
